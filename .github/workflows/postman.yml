@@ -18,8 +18,14 @@ jobs:
       with:
         node-version: '14' # Choose the Node.js version you need
 
-    - name: Install Newman
-      run: npm install -g newman
+    - name: Install newman
+        run:|
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
 
-    - name: Run Newman
-      run: newman run postman-collections.json
+    - name: Make Directory for results
+        run:mkdir -p testResults
+
+    - name: Run POSTMAN collection
+        run:|
+          newman run postman-collections.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
