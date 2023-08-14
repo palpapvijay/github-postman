@@ -1,9 +1,9 @@
 name: Run Postman tests with Newman
 
 on:
-  push:
+  pull_request:
     branches:
-      - post # Change this to the branch you want to trigger the workflow on
+      - post
 
 jobs:
   newman:
