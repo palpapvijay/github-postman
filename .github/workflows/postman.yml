@@ -13,9 +13,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-      - name: Install newman run:| npm install -g newman npm install -g
-          newman-reporter-htmlextra
-      - name: Make Directory for results run:mkdir -p testResults
-      - name: Run POSTMAN collection run:| newman run postman-collections.json -r
+      - name: Install newman 
+         run:| 
+         npm install -g newman npm install -g
+         newman-reporter-htmlextra
+      - name: Make Directory for results 
+         run:mkdir -p testResults
+      - name: Run POSTMAN collection 
+         run:| 
+         newman run postman-collections.json -r
           htmlextra --reporter-htmlextra-export testResults/htmlreport.html
           --reporter-htmlextra-darkTheme  > testResults/runreport1.html
