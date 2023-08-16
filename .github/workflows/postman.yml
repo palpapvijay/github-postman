@@ -1,7 +1,7 @@
 name: Run Postman tests with Newman
 
 on:
-  push:
+  pull_request:
     branches:
       - post
 
